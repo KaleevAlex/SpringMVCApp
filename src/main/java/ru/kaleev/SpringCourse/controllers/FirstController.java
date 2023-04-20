@@ -2,12 +2,16 @@ package ru.kaleev.SpringCourse.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/first")
 public class FirstController {
 
     @GetMapping("/hello")
-    public String helloPage (){
+    public String helloPage (@RequestParam(value = "name", required = false) String name){
+        System.out.println("Hello " + name);
         return "first/hello";
     }
 
